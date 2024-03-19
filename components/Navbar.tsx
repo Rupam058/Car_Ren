@@ -29,7 +29,7 @@ const Navbar = () => {
     <header
       className={
         header
-          ? "w-full bg-primary-blue fixed z-10 rounded-b-lg"
+          ? "w-full bg-primary-blue fixed z-20 rounded-b-lg"
           : "w-full absolute z-10 py-4"
       }
     >
