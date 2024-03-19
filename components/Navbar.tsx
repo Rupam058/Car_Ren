@@ -26,27 +26,35 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div>
-      <header className={header ? "w-full bg-primary-blue fixed z-50 py-[2px] rounded-b-lg" : "bg-transparent"}>
-        <nav className="max-w-[1440px] mx-auto flex justify-between item-center sm:px-16 px-6 py-[2px]">
-          <Link href="/" className="flex justify-center item-center">
-            <Image
-              src={header ? "/Untitled.svg" : "/logo.svg"}
-              alt="Car Hub Logo"
-              width={118}
-              height={32}
-              className="object-contain"
-            />
-          </Link>
-
-          <CustomButton
-            title="Sign In"
-            btnType="button"
-            containerStyles={header ? "text-white text-xl font-bold rounded-full bg-primary-blue min-w-[130] hover:bg-white hover:text-primary-blue":"text-primary-blue text-xl font-bold rounded-full bg-white min-w-[130] hover:bg-primary-blue hover:text-white"}
+    <header
+      className={
+        header
+          ? "w-full bg-primary-blue fixed z-10 rounded-b-lg"
+          : "w-full absolute z-10"
+      }
+    >
+      <nav className="max-w-[1440px] mx-auto flex justify-between item-center sm:px-16 px-6 py-[2px]">
+        <Link href="/" className="flex justify-center item-center">
+          <Image
+            src={header ? "/Untitled.svg" : "/logo.svg"}
+            alt="Car Hub Logo"
+            width={118}
+            height={32}
+            className="object-contain"
           />
-        </nav>
-      </header>
-    </div>
+        </Link>
+
+        <CustomButton
+          title="Sign In"
+          btnType="button"
+          containerStyles={
+            header
+              ? "text-white text-xl font-bold rounded-full bg-primary-blue min-w-[130] hover:bg-white hover:text-primary-blue"
+              : "text-primary-blue text-xl font-bold rounded-full bg-white min-w-[130] hover:bg-primary-blue hover:text-white"
+          }
+        />
+      </nav>
+    </header>
   );
 };
 
