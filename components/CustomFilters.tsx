@@ -50,7 +50,7 @@ const CustomFilters = ({ title, options }: CustomFilterProps) => {
                   key={option.title}
                   value={option}
                   className={({ active }) =>
-                    `relative cursor-default select-none ${
+                    `relative cursor-pointer select-none ${
                       active ? "bg-primary-blue text-white" : "text-gray-900"
                     }`
                   }

@@ -15,14 +15,11 @@ const SearchManufacturer = ({
   const filteredManufacturers =
     query === ""
       ? manufacturers // return all manufacturers
-      : manufacturers.filter(
-          (
-            item // showing only the typed ones
-          ) =>
-            item
-              .toLowerCase()
-              .replace(/\s+/g, "")
-              .includes(query.toLowerCase().replace(/\s+/g, ""))
+      : manufacturers.filter((item) =>
+          item // filter manufacturers based on the query
+            .toLowerCase()
+            .replace(/\s+/g, "")
+            .includes(query.toLowerCase().replace(/\s+/g, ""))
         );
 
   return (
@@ -41,7 +38,7 @@ const SearchManufacturer = ({
 
           <Combobox.Input
             className="search-manufacturer__input"
-            placeholder="Volkswagen..."
+            placeholder="Toyota"
             displayValue={(item: string) => item}
             onChange={(e) => setQuery(e.target.value)}
           />
@@ -62,7 +59,7 @@ const SearchManufacturer = ({
                   value={query}
                   className="search-manufacturer__option"
                 >
-                  Create "{query}"
+                  {query}
                 </Combobox.Option>
               ) : (
                 filteredManufacturers.map((item) => (
@@ -75,7 +72,7 @@ const SearchManufacturer = ({
                     }
                     value={item}
                   >
-                    {({ selected, active }) => (
+                    {({ selected }) => (
                       <>
                         <span
                           className={`block truncate ${
@@ -84,17 +81,6 @@ const SearchManufacturer = ({
                         >
                           {item}
                         </span>
-
-                        {/* Show an active blue background color if the option is selected */}
-                        {selected ? (
-                          <span
-                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
-                              active
-                                ? "text-white"
-                                : "text-pribg-primary-purple"
-                            }`}
-                          ></span>
-                        ) : null}
                       </>
                     )}
                   </Combobox.Option>
